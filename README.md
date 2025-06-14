@@ -1,63 +1,66 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19779960&assignment_repo_type=AssignmentRepo)
-# Express.js RESTful API Assignment
+# 📦 Product API – Express.js
 
-This assignment focuses on building a RESTful API using Express.js, implementing proper routing, middleware, and error handling.
+A simple RESTful API built with Express.js for managing products.
 
-## Assignment Overview
+---
 
-You will:
-1. Set up an Express.js server
-2. Create RESTful API routes for a product resource
-3. Implement custom middleware for logging, authentication, and validation
-4. Add comprehensive error handling
-5. Develop advanced features like filtering, pagination, and search
+## 🚀 Run the Server
 
-## Getting Started
+1. Install dependencies:
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install dependencies:
-   ```
+   ```bash
    npm install
-   ```
-4. Run the server:
-   ```
-   npm start
-   ```
+   
+2. Create a .env file:
+   PORT=3000
+   API_KEY=your-secret-api-key
 
-## Files Included
+3. Start the server:
+   node server.js
 
-- `Week2-Assignment.md`: Detailed assignment instructions
-- `server.js`: Starter Express.js server file
-- `.env.example`: Example environment variables file
+## 🧪 API Endpoints
+All endpoints start with:
+http://localhost:3000/api/products
 
-## Requirements
+## GET /
+Welcome message.
 
-- Node.js (v18 or higher)
-- npm or yarn
-- Postman, Insomnia, or curl for API testing
+## GET /api/products
+ Get all products
+✅ Supports ?category, ?page, ?limit
 
-## API Endpoints
+## GET /api/products/:id
+Get product by ID
 
-The API will have the following endpoints:
+## POST /api/products
+Create a product
+🔐 Requires header: x-api-key
 
-- `GET /api/products`: Get all products
-- `GET /api/products/:id`: Get a specific product
-- `POST /api/products`: Create a new product
-- `PUT /api/products/:id`: Update a product
-- `DELETE /api/products/:id`: Delete a product
+## Body:
+{
+  "name": "Phone",
+  "description": "New smartphone",
+  "price": 800,
+  "category": "electronics",
+  "inStock": true
+}
 
-## Submission
+## PUT /api/products/:id
+Update product
+🔐 Requires x-api-key
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+## DELETE /api/products/:id
+Delete product
+🔐 Requires x-api-key
 
-1. Complete all the required API endpoints
-2. Implement the middleware and error handling
-3. Document your API in the README.md
-4. Include examples of requests and responses
+## GET /api/products/search?name=term
+Search products by name
 
-## Resources
+## GET /api/products/stats
+Return product stats
 
-- [Express.js Documentation](https://expressjs.com/)
-- [RESTful API Design Best Practices](https://restfulapi.net/)
-- [HTTP Status Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) 
+
+
+
+
+
